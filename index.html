@@ -8,10 +8,11 @@
 </head>
 <body>
 
-  <!-- Galaxy Background -->
-  <div id="galaxy-overlay"></div>
-  <!-- Dark overlay for contrast -->
-  <div id="dark-overlay"></div>
+  <!-- Galaxy Background container -->
+  <div id="galaxy-container">
+    <img id="galaxy-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Milky_Way_Arch.jpg/1200px-Milky_Way_Arch.jpg" alt="Milky Way Galaxy" />
+    <div id="dark-overlay"></div>
+  </div>
 
   <!-- Twinkling Stars -->
   <div id="galaxy"></div>
@@ -99,7 +100,6 @@
     const fileUpload = document.getElementById("file-upload");
     const profilePic = document.getElementById("profile-pic");
 
-    // Load saved profile picture from localStorage
     window.addEventListener("load", () => {
       const savedImage = localStorage.getItem("profileImage");
       if (savedImage) {
@@ -107,7 +107,6 @@
       }
     });
 
-    // Save profile picture on change
     fileUpload.addEventListener("change", function () {
       const file = this.files[0];
       if (file) {
@@ -120,7 +119,6 @@
       }
     });
 
-    // Galaxy twinkling stars
     const galaxy = document.getElementById("galaxy");
     for (let i = 0; i < 120; i++) {
       let star = document.createElement("div");
@@ -132,7 +130,6 @@
       galaxy.appendChild(star);
     }
 
-    // Shooting stars container
     const shootingStars = document.getElementById("shooting-stars");
 
     function createShootingStar() {
@@ -142,14 +139,11 @@
       star.style.left = `${Math.random() * 90 + 5}%`;
       star.style.animationDuration = `${0.8 + Math.random() * 1.2}s`;
       shootingStars.appendChild(star);
-
-      // Remove after animation
       setTimeout(() => {
         shootingStars.removeChild(star);
       }, 2000);
     }
 
-    // Create shooting stars randomly every 1.5 seconds
     setInterval(() => {
       if (shootingStars.childElementCount < 5) {
         createShootingStar();

@@ -7,34 +7,44 @@ body {
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
-
-  /* fallback background */
   background-color: #000;
 }
 
-/* Milky Way galaxy background with transparency overlay */
-#galaxy-overlay {
+/* Galaxy Container */
+#galaxy-container {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url('https://cdn.pixabay.com/photo/2017/07/27/14/42/milky-way-2540153_1280.jpg') no-repeat center center fixed;
-  background-size: cover;
-  opacity: 0.3; /* slightly more visible */
-  z-index: -6;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150vw; /* wider for better coverage */
+  height: 120vh;
+  overflow: hidden;
+  z-index: -7;
   pointer-events: none;
 }
 
-/* Dark overlay for contrast */
+#galaxy-image {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150vw;
+  height: auto;
+  max-height: none;
+  object-fit: cover;
+  opacity: 0.35; /* subtle visibility */
+  filter: brightness(0.8) contrast(1.1);
+}
+
+/* Dark overlay on galaxy for contrast */
 #dark-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.6);
-  z-index: -5;
+  background: rgba(0,0,0,0.55);
+  z-index: -6;
   pointer-events: none;
 }
 
@@ -45,9 +55,10 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -4;
+  z-index: -5;
   pointer-events: none;
 }
+
 .star {
   position: absolute;
   width: 2px;
@@ -57,6 +68,7 @@ body {
   opacity: 0.8;
   animation: twinkle infinite ease-in-out;
 }
+
 @keyframes twinkle {
   0%, 100% {
     opacity: 0.2;
@@ -76,7 +88,7 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: -3;
+  z-index: -4;
 }
 
 .shooting-star {
@@ -145,12 +157,10 @@ header {
   transition: background 0.3s ease, opacity 0.4s ease, box-shadow 0.3s ease;
   max-width: 180px;
 
-  /* Subtle & nearly transparent by default */
   opacity: 0.15;
   filter: grayscale(60%);
 }
 
-/* Fully visible and glowing on hover or focus */
 .custom-file-upload:hover,
 .custom-file-upload:focus {
   opacity: 1;
