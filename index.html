@@ -14,61 +14,6 @@
   <!-- Shooting Stars Container -->
   <div id="shooting-stars"></div>
 
-  <!-- Infinity Loop Background with shooting star -->
-  <div class="background">
-    <svg
-      viewBox="0 0 800 400"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid meet"
-    >
-      <defs>
-        <linearGradient id="metallicGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#d7d7d7" />
-          <stop offset="40%" stop-color="#4facfe" />
-          <stop offset="60%" stop-color="#7b2ff7" />
-          <stop offset="100%" stop-color="#1e1e1e" />
-        </linearGradient>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-        <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#4facfe" stop-opacity="1" />
-          <stop offset="100%" stop-color="#4facfe" stop-opacity="0" />
-        </radialGradient>
-      </defs>
-
-      <!-- Base Infinity Loop -->
-      <path
-        id="baseLoop"
-        d="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z 
-           M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
-        fill="none"
-        stroke="url(#metallicGradient)"
-        stroke-width="18"
-        stroke-linecap="round"
-        filter="url(#glow)"
-      />
-
-      <!-- Moving Shooting Star -->
-      <circle r="8" fill="#4facfe" filter="url(#glow)">
-        <animateMotion
-          dur="6s"
-          repeatCount="indefinite"
-          rotate="auto"
-          path="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z 
-                M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
-        />
-      </circle>
-
-      <!-- Shooting Star Glow -->
-      <circle r="12" fill="url(#starGlow)" />
-    </svg>
-  </div>
-
   <!-- Header Section -->
   <header>
     <div class="profile-container">
@@ -78,13 +23,13 @@
         alt="Profile Picture"
         class="profile-pic"
       />
-      <label for="file-upload" class="custom-file-upload">
+      <label for="file-upload" class="custom-file-upload" tabindex="0">
         Choose Profile Picture
       </label>
       <input type="file" id="file-upload" accept="image/*" />
     </div>
     <h1>Goutham Babu</h1>
-    <p>Web Developer | DevOps Enthusiast | Cloud & Automation </p>
+    <p>Web Developer | DevOps Enthusiast | Cloud & Automation 🚀</p>
 
     <!-- Buttons -->
     <div class="buttons">
