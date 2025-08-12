@@ -5,27 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goutham's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Infinity Loop Background -->
     <div class="background">
-        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
-                  fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="20" />
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <linearGradient id="loopGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#4facfe"/>
+                    <stop offset="100%" stop-color="#7b2ff7"/>
+                </linearGradient>
+            </defs>
+            <path d="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z 
+                     M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
+                  fill="none" stroke="url(#loopGradient)" stroke-width="15" stroke-linecap="round"/>
         </svg>
     </div>
 
     <!-- Header Section -->
     <header>
-        <div class="profile-pic-container">
-            <img src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic" id="profileImage">
-            <input type="file" id="upload" accept="image/*" onchange="loadFile(event)">
+        <div class="profile-container">
+            <img id="profile-pic" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
+            <input type="file" id="file-upload" accept="image/*">
         </div>
         <h1>Goutham Babu</h1>
         <p>Web Developer | DevOps Enthusiast | Cloud & Automation</p>
 
+        <!-- Buttons -->
         <div class="buttons">
             <a href="https://github.com/Gouthambabu2137" target="_blank" class="btn">GitHub</a>
             <a href="https://www.linkedin.com/in/goutham-babu-6399a02a5" target="_blank" class="btn">LinkedIn</a>
@@ -65,10 +72,20 @@
     </footer>
 
     <script>
-        const loadFile = (event) => {
-            const image = document.getElementById('profileImage');
-            image.src = URL.createObjectURL(event.target.files[0]);
-        };
+        const fileUpload = document.getElementById('file-upload');
+        const profilePic = document.getElementById('profile-pic');
+
+        fileUpload.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profilePic.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
+
 </body>
 </html>
