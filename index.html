@@ -3,70 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goutham's Portfolio</title>
+    <title>Goutham Babu | DevOps Engineer</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
-        <div class="profile-pic-container">
-            <img id="profileImage" src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic">
-        </div>
-        <input type="file" id="imageUpload" accept="image/*" style="margin-top: 10px;">
+        <div class="container header-content">
+            <div class="profile-pic-container">
+                <img id="profileImage" src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic">
+            </div>
+            <input type="file" id="imageUpload" accept="image/*">
 
-        <h1>Goutham Babu</h1>
-        <p>Web Developer | Tech Enthusiast | Aspiring DevOps Engineer</p>
+            <h1>Goutham Babu</h1>
+            <p class="tagline">Web Developer | Tech Enthusiast | Aspiring DevOps Engineer</p>
 
-        <!-- Buttons -->
-        <div class="buttons">
-            <a href="https://github.com/Gouthambabu2137" target="_blank" class="btn">GitHub</a>
-            <a href="https://www.linkedin.com/in/goutham-babu-6399a02a5" target="_blank" class="btn">LinkedIn</a>
+            <div class="buttons">
+                <a href="https://github.com/Gouthambabu2137" target="_blank" class="btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/goutham-babu-6399a02a5" target="_blank" class="btn">LinkedIn</a>
+            </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section>
+    <section class="about container">
         <h2>About Me</h2>
-        <p>Hi, I'm Goutham! This is my first static website hosted for free on GitHub Pages. 
-           I enjoy building websites, learning new technologies, and exploring DevOps practices such as 
-           CI/CD pipelines, containerization with Docker, Kubernetes orchestration, and cloud deployments.</p>
+        <p>
+            Hi, I'm Goutham! This is my first static website hosted for free on GitHub Pages.  
+            I am passionate about building robust, scalable systems and continuously learning in the 
+            fields of <strong>Web Development</strong> and <strong>DevOps</strong>.
+        </p>
+        <p>
+            My DevOps skillset includes:
+        </p>
+        <ul>
+            <li>CI/CD Pipelines (GitHub Actions, Jenkins)</li>
+            <li>Containerization with Docker</li>
+            <li>Kubernetes Orchestration</li>
+            <li>Cloud Platforms (AWS, Azure)</li>
+            <li>Infrastructure as Code (Terraform)</li>
+            <li>Monitoring & Logging (Prometheus, Grafana)</li>
+        </ul>
     </section>
 
     <!-- Projects Section -->
-    <section>
+    <section class="projects container">
         <h2>My Projects</h2>
-        <div class="projects">
+        <div class="project-list">
             <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Static HTML website hosted on GitHub Pages.</p>
+                <h3>Static Portfolio</h3>
+                <p>Responsive static portfolio site hosted on GitHub Pages.</p>
             </div>
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Coming soon...</p>
+                <h3>DevOps Project</h3>
+                <p>Coming soon — Kubernetes deployment with CI/CD automation.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact container">
         <h2>Contact Me</h2>
         <p>Email: <a href="mailto:gouthambabu2137@gmail.com">gouthambabu2137@gmail.com</a></p>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Goutham | Hosted on GitHub Pages</p>
+        <p>© 2025 Goutham Babu | Hosted on GitHub Pages</p>
     </footer>
 
-    <!-- Image Upload Script -->
+    <!-- Script to handle image upload with persistence -->
     <script>
-        document.getElementById("imageUpload").addEventListener("change", function(event) {
+        const profileImage = document.getElementById("profileImage");
+        const imageUpload = document.getElementById("imageUpload");
+
+        // Load saved image from localStorage
+        const savedImage = localStorage.getItem("profileImage");
+        if (savedImage) {
+            profileImage.src = savedImage;
+        }
+
+        // Handle image upload and save to localStorage
+        imageUpload.addEventListener("change", function(event) {
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    document.getElementById("profileImage").src = e.target.result;
+                    profileImage.src = e.target.result;
+                    localStorage.setItem("profileImage", e.target.result); // Save image
                 };
                 reader.readAsDataURL(file);
             }
