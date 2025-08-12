@@ -1,151 +1,163 @@
 /* General Styles */
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    background: radial-gradient(circle at center, #0a0a0a 0%, #111 50%, #000 100%);
-    text-align: center;
-    overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background: radial-gradient(
+    circle at center,
+    #0a0a0a 0%,
+    #111 50%,
+    #000 100%
+  );
+  text-align: center;
+  overflow-x: hidden;
 }
 
 /* Galaxy Background */
 #galaxy {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -3;
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  overflow: visible;
+  background: radial-gradient(
+    ellipse at center,
+    #000000 0%,
+    #0d0d0d 80%,
+    #000000 100%
+  );
 }
 .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: twinkle infinite ease-in-out;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle infinite ease-in-out;
 }
 @keyframes twinkle {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.5); }
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
 }
 
 /* Infinity Loop Background */
 .background {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 1200px;
-    height: 800px;
-    transform: translate(-50%, -50%);
-    z-index: -2;
-    opacity: 0.25;
-    animation: loopRotate 25s linear infinite;
-}
-
-@keyframes loopRotate {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.1); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 1200px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+  opacity: 0.25;
+  /* No animation for static */
 }
 
 /* Header */
 header {
-    padding: 2rem 1rem;
+  padding: 2rem 1rem;
 }
 
 /* Profile Picture Container */
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; /* Enough gap to avoid overlap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Enough gap to avoid overlap */
 }
 
 .profile-pic {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #4facfe;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.8);
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4facfe;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 #file-upload {
-    background-color: #4facfe;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 8px;
-    border: none;
-    font-size: 0.9rem;
-    cursor: pointer;
+  background-color: #4facfe;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 /* Buttons */
 .buttons {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .btn {
-    display: inline-block;
-    background: linear-gradient(to right, #4facfe, #7b2ff7);
-    color: white;
-    padding: 0.7rem 1.4rem;
-    margin: 0 10px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+  background: linear-gradient(to right, #4facfe, #7b2ff7);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  margin: 0 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 4px 12px rgba(79, 172, 254, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 12px rgba(79, 172, 254, 0.4);
 }
 
 /* Sections */
 section {
-    margin: 2rem auto;
-    max-width: 800px;
-    padding: 0 1rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 0 1rem;
 }
 
 h2 {
-    border-bottom: 2px solid #4facfe;
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 1rem;
+  border-bottom: 2px solid #4facfe;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 1rem;
 }
 
 /* Projects */
 .projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .project-card {
-    background: rgba(255,255,255,0.05);
-    padding: 1rem;
-    border-radius: 12px;
-    width: 280px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Contact */
 .contact a {
-    color: #4facfe;
-    text-decoration: none;
+  color: #4facfe;
+  text-decoration: none;
 }
 
 /* Footer */
 footer {
-    margin-top: 2rem;
-    padding: 1rem;
-    font-size: 0.9rem;
-    opacity: 0.8;
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }

@@ -1,121 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goutham's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goutham's Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <!-- Galaxy Particle Background -->
-    <div id="galaxy"></div>
+  <!-- Galaxy Particle Background -->
+  <div id="galaxy"></div>
 
-    <!-- Infinity Loop Background -->
-    <div class="background">
-        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-            <defs>
-                <!-- Metallic Gradient -->
-                <linearGradient id="metallicGradient" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#d7d7d7"/>
-                    <stop offset="40%" stop-color="#4facfe"/>
-                    <stop offset="60%" stop-color="#7b2ff7"/>
-                    <stop offset="100%" stop-color="#1e1e1e"/>
-                </linearGradient>
+  <!-- Infinity Loop Background -->
+  <div class="background">
+    <svg
+      viewBox="0 0 800 400"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <defs>
+        <!-- Metallic Gradient -->
+        <linearGradient id="metallicGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#d7d7d7" />
+          <stop offset="40%" stop-color="#4facfe" />
+          <stop offset="60%" stop-color="#7b2ff7" />
+          <stop offset="100%" stop-color="#1e1e1e" />
+        </linearGradient>
 
-                <!-- Glow Effect -->
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-                    <feMerge>
-                        <feMergeNode in="blur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                </filter>
-            </defs>
+        <!-- Glow Effect -->
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
 
-            <!-- Infinity Loop Path -->
-            <path d="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z 
-                     M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
-                  fill="none" stroke="url(#metallicGradient)" stroke-width="18" stroke-linecap="round" filter="url(#glow)"/>
-        </svg>
+      <!-- Infinity Loop Path -->
+      <path
+        d="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z 
+           M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
+        fill="none"
+        stroke="url(#metallicGradient)"
+        stroke-width="18"
+        stroke-linecap="round"
+        filter="url(#glow)"
+      />
+    </svg>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <div class="profile-container">
+      <img
+        id="profile-pic"
+        src="https://via.placeholder.com/150"
+        alt="Profile Picture"
+        class="profile-pic"
+      />
+      <input type="file" id="file-upload" accept="image/*" />
     </div>
+    <h1>Goutham Babu</h1>
+    <p>Web Developer | DevOps Enthusiast | Cloud & Automation 🚀</p>
 
-    <!-- Header Section -->
-    <header>
-        <div class="profile-container">
-            <img id="profile-pic" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
-            <input type="file" id="file-upload" accept="image/*">
-        </div>
-        <h1>Goutham Babu</h1>
-        <p>Web Developer | DevOps Enthusiast | Cloud & Automation 🚀</p>
+    <!-- Buttons -->
+    <div class="buttons">
+      <a
+        href="https://github.com/Gouthambabu2137"
+        target="_blank"
+        class="btn"
+        >GitHub</a
+      >
+      <a
+        href="https://www.linkedin.com/in/goutham-babu-6399a02a5"
+        target="_blank"
+        class="btn"
+        >LinkedIn</a
+      >
+    </div>
+  </header>
 
-        <!-- Buttons -->
-        <div class="buttons">
-            <a href="https://github.com/Gouthambabu2137" target="_blank" class="btn">GitHub</a>
-            <a href="https://www.linkedin.com/in/goutham-babu-6399a02a5" target="_blank" class="btn">LinkedIn</a>
-        </div>
-    </header>
+  <!-- About Section -->
+  <section>
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm Goutham! An aspiring DevOps Engineer passionate about bridging
+      the gap between development and operations. Skilled in CI/CD pipelines,
+      Docker, Kubernetes, and cloud platforms. I enjoy building scalable
+      systems, automating workflows, and deploying secure, efficient
+      applications.
+    </p>
+  </section>
 
-    <!-- About Section -->
-    <section>
-        <h2>About Me</h2>
-        <p>Hi, I'm Goutham! An aspiring DevOps Engineer passionate about bridging the gap between development and operations. Skilled in CI/CD pipelines, Docker, Kubernetes, and cloud platforms. I enjoy building scalable systems, automating workflows, and deploying secure, efficient applications.</p>
-    </section>
+  <!-- Projects Section -->
+  <section>
+    <h2>My Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Project 1</h3>
+        <p>Static HTML portfolio hosted on GitHub Pages.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project 2</h3>
+        <p>CI/CD pipeline automation with Docker & Kubernetes.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section>
-        <h2>My Projects</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Static HTML portfolio hosted on GitHub Pages.</p>
-            </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>CI/CD pipeline automation with Docker & Kubernetes.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <p>
+      Email:
+      <a href="mailto:gouthambabu2137@gmail.com">gouthambabu2137@gmail.com</a>
+    </p>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:gouthambabu2137@gmail.com">gouthambabu2137@gmail.com</a></p>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Goutham | Hosted on GitHub Pages</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Goutham | Hosted on GitHub Pages</p>
-    </footer>
+  <!-- Profile Picture Upload Script -->
+  <script>
+    const fileUpload = document.getElementById("file-upload");
+    const profilePic = document.getElementById("profile-pic");
 
-    <!-- Profile Picture Upload Script -->
-    <script>
-        const fileUpload = document.getElementById('file-upload');
-        const profilePic = document.getElementById('profile-pic');
+    fileUpload.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profilePic.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
 
-        fileUpload.addEventListener('change', function() {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    profilePic.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Galaxy particle generation
-        const galaxy = document.getElementById("galaxy");
-        for (let i = 0; i < 120; i++) {
-            let star = document.createElement("div");
-            star.className = "star";
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDuration = `${2 + Math.random() * 4}s`;
-            star.style.animationDelay = `${Math.random() * 5}s`;
-            galaxy.appendChild(star);
-        }
-    </script>
-
+    // Galaxy particle generation
+    const galaxy = document.getElementById("galaxy");
+    for (let i = 0; i < 120; i++) {
+      let star = document.createElement("div");
+      star.className = "star";
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${2 + Math.random() * 4}s`;
+      star.style.animationDelay = `${Math.random() * 5}s`;
+      galaxy.appendChild(star);
+    }
+  </script>
 </body>
 </html>
