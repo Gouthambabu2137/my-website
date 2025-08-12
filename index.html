@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goutham Babu | DevOps Engineer</title>
+    <title>Goutham's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Background Infinity Loop -->
-    <div class="background-loop"></div>
+    <!-- Infinity Loop Background -->
+    <div class="background">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+            <path d="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
+                  fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="20" />
+        </svg>
+    </div>
 
     <!-- Header Section -->
     <header>
-        <div class="profile-container">
-            <img id="profileImage" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
-            <input type="file" id="imageUpload" accept="image/*">
+        <div class="profile-pic-container">
+            <img src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic" id="profileImage">
+            <input type="file" id="upload" accept="image/*" onchange="loadFile(event)">
         </div>
         <h1>Goutham Babu</h1>
-        <p>Web Developer | DevOps Enthusiast | Cloud & Automation 🚀</p>
+        <p>Web Developer | DevOps Enthusiast | Cloud & Automation</p>
 
-        <!-- Buttons -->
         <div class="buttons">
             <a href="https://github.com/Gouthambabu2137" target="_blank" class="btn">GitHub</a>
             <a href="https://www.linkedin.com/in/goutham-babu-6399a02a5" target="_blank" class="btn">LinkedIn</a>
@@ -31,11 +35,7 @@
     <!-- About Section -->
     <section>
         <h2>About Me</h2>
-        <p>
-            Hi, I'm Goutham! An aspiring <strong>DevOps Engineer</strong> passionate about bridging the gap between development and operations.
-            Skilled in <strong>CI/CD pipelines</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, and cloud platforms.
-            I enjoy building scalable systems, automating workflows, and deploying secure, efficient applications.
-        </p>
+        <p>Hi, I'm Goutham! An aspiring DevOps Engineer passionate about bridging the gap between development and operations. Skilled in CI/CD pipelines, Docker, Kubernetes, and cloud platforms. I enjoy building scalable systems, automating workflows, and deploying secure, efficient applications.</p>
     </section>
 
     <!-- Projects Section -->
@@ -64,19 +64,11 @@
         <p>© 2025 Goutham | Hosted on GitHub Pages</p>
     </footer>
 
-    <!-- JS for Image Upload -->
     <script>
-        document.getElementById("imageUpload").addEventListener("change", function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById("profileImage").src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
-        });
+        const loadFile = (event) => {
+            const image = document.getElementById('profileImage');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
     </script>
-
 </body>
 </html>
