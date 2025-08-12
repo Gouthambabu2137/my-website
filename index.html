@@ -10,9 +10,13 @@
 
     <!-- Header Section -->
     <header>
-        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
+        <div class="profile-pic-container">
+            <img id="profileImage" src="https://via.placeholder.com/200" alt="Profile Picture" class="profile-pic">
+        </div>
+        <input type="file" id="imageUpload" accept="image/*" style="margin-top: 10px;">
+
         <h1>Goutham Babu</h1>
-        <p>Web Developer | DevOps Enthusiast | Technology Professional</p>
+        <p>Web Developer | Tech Enthusiast | Aspiring DevOps Engineer</p>
 
         <!-- Buttons -->
         <div class="buttons">
@@ -24,11 +28,9 @@
     <!-- About Section -->
     <section>
         <h2>About Me</h2>
-        <p>
-            Hi, I'm Goutham! This is my first static website hosted for free on GitHub Pages. 
-            I specialize in web development and have a growing passion for DevOps practices, 
-            including CI/CD pipelines, cloud infrastructure, and automation tools.
-        </p>
+        <p>Hi, I'm Goutham! This is my first static website hosted for free on GitHub Pages. 
+           I enjoy building websites, learning new technologies, and exploring DevOps practices such as 
+           CI/CD pipelines, containerization with Docker, Kubernetes orchestration, and cloud deployments.</p>
     </section>
 
     <!-- Projects Section -->
@@ -41,7 +43,7 @@
             </div>
             <div class="project-card">
                 <h3>Project 2</h3>
-                <p>Coming Soon ...</p>
+                <p>Coming soon...</p>
             </div>
         </div>
     </section>
@@ -56,6 +58,20 @@
     <footer>
         <p>© 2025 Goutham | Hosted on GitHub Pages</p>
     </footer>
+
+    <!-- Image Upload Script -->
+    <script>
+        document.getElementById("imageUpload").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("profileImage").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 
 </body>
 </html>
