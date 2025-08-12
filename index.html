@@ -8,10 +8,13 @@
 </head>
 <body>
 
-  <!-- Galaxy Particle Background -->
+  <!-- Galaxy Background -->
+  <div id="galaxy-overlay"></div>
+
+  <!-- Twinkling Stars -->
   <div id="galaxy"></div>
 
-  <!-- Shooting Stars Container -->
+  <!-- Shooting Stars -->
   <div id="shooting-stars"></div>
 
   <!-- Header Section -->
@@ -80,7 +83,7 @@
     <h2>Contact Me</h2>
     <p>
       Email:
-      <a href="mailto:gouthambabu2105@gmail.com">gouthambabu2105@gmail.com</a>
+      <a href="mailto:gouthambabu2137@gmail.com">gouthambabu2137@gmail.com</a>
     </p>
   </section>
 
@@ -91,16 +94,25 @@
 
   <!-- JS -->
   <script>
-    // Profile Picture Upload
     const fileUpload = document.getElementById("file-upload");
     const profilePic = document.getElementById("profile-pic");
 
+    // Load saved profile picture from localStorage
+    window.addEventListener("load", () => {
+      const savedImage = localStorage.getItem("profileImage");
+      if (savedImage) {
+        profilePic.src = savedImage;
+      }
+    });
+
+    // Save profile picture on change
     fileUpload.addEventListener("change", function () {
       const file = this.files[0];
       if (file) {
         const reader = new FileReader();
         reader.onload = function (e) {
           profilePic.src = e.target.result;
+          localStorage.setItem("profileImage", e.target.result);
         };
         reader.readAsDataURL(file);
       }
