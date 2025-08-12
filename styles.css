@@ -139,37 +139,6 @@ header {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
 }
 
-/* Hide the default file input */
-#file-upload {
-  display: none;
-}
-
-/* Custom styled button for file upload */
-.custom-file-upload {
-  cursor: pointer;
-  background: linear-gradient(90deg, #4facfe, #7b2ff7);
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: 600;
-  color: white;
-  box-shadow: 0 0 10px #4facfe;
-  user-select: none;
-  transition: background 0.3s ease, opacity 0.4s ease, box-shadow 0.3s ease;
-  max-width: 180px;
-
-  opacity: 0.15;
-  filter: grayscale(60%);
-}
-
-.custom-file-upload:hover,
-.custom-file-upload:focus {
-  opacity: 1;
-  filter: none;
-  background: linear-gradient(90deg, #7b2ff7, #4facfe);
-  box-shadow: 0 0 15px #7b2ff7;
-  outline: none;
-}
-
 /* Buttons */
 .buttons {
   margin-top: 1rem;

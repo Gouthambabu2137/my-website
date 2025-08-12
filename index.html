@@ -25,17 +25,14 @@
     <div class="profile-container">
       <img
         id="profile-pic"
-        src="https://via.placeholder.com/150"
+        src="images/profile.jpg"
         alt="Profile Picture"
         class="profile-pic"
       />
-      <label for="file-upload" class="custom-file-upload" tabindex="0">
-        Choose Profile Picture
-      </label>
-      <input type="file" id="file-upload" accept="image/*" />
+      <!-- Removed file upload input and button -->
     </div>
     <h1>Goutham Babu</h1>
-    <p>Web Developer | DevOps Enthusiast | Cloud & Automation </p>
+    <p>Web Developer | DevOps Enthusiast | Cloud & Automation 🚀</p>
 
     <!-- Buttons -->
     <div class="buttons">
@@ -58,7 +55,7 @@
   <section>
     <h2>About Me</h2>
     <p>
-      Hi, I'm Goutham an aspiring DevOps Engineer passionate about bridging
+      Hi, I'm Goutham! An aspiring DevOps Engineer passionate about bridging
       the gap between development and operations. Skilled in CI/CD pipelines,
       Docker, Kubernetes, and cloud platforms. I enjoy building scalable
       systems, automating workflows, and deploying secure, efficient
@@ -95,30 +92,8 @@
     <p>© 2025 Goutham | Hosted on GitHub Pages</p>
   </footer>
 
-  <!-- JS -->
+  <!-- JS for stars and shooting stars (no profile pic upload logic) -->
   <script>
-    const fileUpload = document.getElementById("file-upload");
-    const profilePic = document.getElementById("profile-pic");
-
-    window.addEventListener("load", () => {
-      const savedImage = localStorage.getItem("profileImage");
-      if (savedImage) {
-        profilePic.src = savedImage;
-      }
-    });
-
-    fileUpload.addEventListener("change", function () {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          profilePic.src = e.target.result;
-          localStorage.setItem("profileImage", e.target.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
     const galaxy = document.getElementById("galaxy");
     for (let i = 0; i < 120; i++) {
       let star = document.createElement("div");
