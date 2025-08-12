@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Static Site</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Welcome to My Static Site</h1>
+    <p class="tagline">Deployed with GitHub Pages — hello world!</p>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>About this page</h2>
+      <p>This is a simple static website served for free by GitHub Pages. Replace this text with your content.</p>
+    </section>
+
+    <section>
+      <h2>Next steps</h2>
+      <ul>
+        <li>Edit <code>index.html</code> and <code>styles.css</code></li>
+        <li>Push changes to your GitHub repo to update the live site</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> Your Name
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
