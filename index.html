@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,6 +10,9 @@
 
   <!-- Galaxy Particle Background -->
   <div id="galaxy"></div>
+
+  <!-- Shooting Stars Container -->
+  <div id="shooting-stars"></div>
 
   <!-- Infinity Loop Background -->
   <div class="background">
@@ -35,10 +38,18 @@
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
+
+        <!-- Energy Gradient -->
+        <linearGradient id="energyGradient" x1="0" y1="0" x2="1" y2="0" spreadMethod="repeat">
+          <stop offset="0%" stop-color="#00ffff" stop-opacity="0" />
+          <stop offset="50%" stop-color="#00ffff" stop-opacity="1" />
+          <stop offset="100%" stop-color="#00ffff" stop-opacity="0" />
+        </linearGradient>
       </defs>
 
-      <!-- Infinity Loop Path -->
+      <!-- Base Infinity Loop -->
       <path
+        id="baseLoop"
         d="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z 
            M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
         fill="none"
@@ -46,6 +57,19 @@
         stroke-width="18"
         stroke-linecap="round"
         filter="url(#glow)"
+      />
+
+      <!-- Energy Flowing Overlay -->
+      <path
+        id="energyLoop"
+        d="M200,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z 
+           M400,200c0,-100 200,-100 200,0c0,100 -200,100 -200,0z"
+        fill="none"
+        stroke="url(#energyGradient)"
+        stroke-width="18"
+        stroke-linecap="round"
+        stroke-dasharray="150 300"
+        stroke-dashoffset="0"
       />
     </svg>
   </div>
@@ -122,8 +146,9 @@
     <p>© 2025 Goutham | Hosted on GitHub Pages</p>
   </footer>
 
-  <!-- Profile Picture Upload Script -->
+  <!-- JS -->
   <script>
+    // Profile Picture Upload
     const fileUpload = document.getElementById("file-upload");
     const profilePic = document.getElementById("profile-pic");
 
@@ -138,7 +163,7 @@
       }
     });
 
-    // Galaxy particle generation
+    // Galaxy twinkling stars
     const galaxy = document.getElementById("galaxy");
     for (let i = 0; i < 120; i++) {
       let star = document.createElement("div");
@@ -149,6 +174,40 @@
       star.style.animationDelay = `${Math.random() * 5}s`;
       galaxy.appendChild(star);
     }
+
+    // Shooting stars container
+    const shootingStars = document.getElementById("shooting-stars");
+
+    function createShootingStar() {
+      const star = document.createElement("div");
+      star.className = "shooting-star";
+      star.style.top = `${Math.random() * 80 + 10}%`;
+      star.style.left = `${Math.random() * 90 + 5}%`;
+      star.style.animationDuration = `${0.8 + Math.random() * 1.2}s`;
+      shootingStars.appendChild(star);
+
+      // Remove after animation
+      setTimeout(() => {
+        shootingStars.removeChild(star);
+      }, 2000);
+    }
+
+    // Create shooting stars randomly every 1.5 to 3 seconds
+    setInterval(() => {
+      if (shootingStars.childElementCount < 5) {
+        createShootingStar();
+      }
+    }, 1500);
+
+    // Animate energy flow on infinity loop
+    const energyLoop = document.getElementById("energyLoop");
+    let dashoffset = 0;
+    function animateEnergy() {
+      dashoffset = (dashoffset + 2) % 450;
+      energyLoop.style.strokeDashoffset = dashoffset;
+      requestAnimationFrame(animateEnergy);
+    }
+    animateEnergy();
   </script>
 </body>
 </html>

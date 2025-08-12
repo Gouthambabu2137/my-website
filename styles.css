@@ -12,6 +12,7 @@ body {
   );
   text-align: center;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Galaxy Background */
@@ -21,7 +22,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -3;
+  z-index: -4;
   overflow: visible;
   background: radial-gradient(
     ellipse at center,
@@ -51,6 +52,39 @@ body {
   }
 }
 
+/* Shooting Stars */
+#shooting-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -3;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, white, rgba(255, 255, 255, 0));
+  filter: drop-shadow(0 0 3px white);
+  animation-name: shooting;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-300px) translateY(100px);
+    opacity: 0;
+  }
+}
+
 /* Infinity Loop Background */
 .background {
   position: fixed;
@@ -61,12 +95,14 @@ body {
   transform: translate(-50%, -50%);
   z-index: -2;
   opacity: 0.25;
-  /* No animation for static */
+  /* no rotation animation, fully static */
 }
 
 /* Header */
 header {
   padding: 2rem 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Profile Picture Container */
@@ -74,7 +110,8 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Enough gap to avoid overlap */
+  gap: 24px; /* More gap so upload does not overlap */
+  margin-bottom: 1rem;
 }
 
 .profile-pic {
@@ -89,11 +126,12 @@ header {
 #file-upload {
   background-color: #4facfe;
   color: white;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 8px;
   border: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
   cursor: pointer;
+  max-width: 160px;
 }
 
 /* Buttons */
@@ -123,6 +161,8 @@ section {
   margin: 2rem auto;
   max-width: 800px;
   padding: 0 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 h2 {
@@ -160,4 +200,6 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
   opacity: 0.8;
+  position: relative;
+  z-index: 1;
 }
